@@ -2,6 +2,7 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    text-transform: none;
 
     td, th {
       border: 1px solid #dddddd;
@@ -36,7 +37,39 @@ table {
       }
     }
   }
-  
+.modal-user-container{
+    .modal-header{
+        button{
+            background-color: transparent;
+            border: none;
+            color: #dddddd;
+            font-size: 30px;
+        }
+    }
+    .modal-user-body{
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        .input-container{
+            display: flex;
+            flex-direction: column;
+            width: 49%;
+
+            &.max-width{
+                width: 100%;
+            }
+            input{
+                border-radius: 3px;
+                height: 30px;
+                outline: none ;
+                border: 1px solid grey;
+                padding: 0 10px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    
+}
  
 
 

@@ -1,4 +1,22 @@
 {
+    "home-header": {
+        "speciality": "Medial Speciality",
+        "searchdoctor": "Find Doctors by Specialty",
+        "medical-facility": "Medical facility",
+        "clinic-hospital": "Choose hospital clinic",
+        "doctor": "Doctor",
+        "good-doctor": "Choose a good doctor",
+        "checkup-package": "Checkup package",
+        "health-check": "General health check",
+        "support": "Support"
+    },
+    "banner": {
+        "title1": "MEDICAL BACKGROUND",
+        "title2": "COMPREHENSIVE HEALTH CARE"
+    },
+    "options": {
+        "specialist-examination": "Specialist Examination"
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",

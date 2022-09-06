@@ -44,6 +44,24 @@
             i{
                 color: #45c3d2;
             }
+            .language-vi{
+                margin:  4px;
+                cursor: pointer;
+                &.active {
+                    span{
+                        color: red;
+                    }
+                }
+            }
+            .language-en{
+                margin:  4px;
+                cursor: pointer;
+                &.active {
+                    span{
+                        color: rgb(21, 0, 255);
+                    }
+                }
+            }
 
         }
     }

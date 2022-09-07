@@ -21,31 +21,31 @@ class Specialty extends Component {
                     </div>
                     <div className='section-body'>
                         <Slider {...this.props.settings}>
-                            <div className='specialty-customize'>
+                            <div className='section-customize'>
                                 <div className='bg-image section-specialty'></div>
                                 <div>Co Xuong Khop 1</div>
                             </div>
-                            <div className='specialty-customize'>
+                            <div className='section-customize'>
                                 <div className='bg-image section-specialty'></div>
                                 <div>Co Xuong Khop 1</div>
                             </div>
-                            <div className='specialty-customize'>
+                            <div className='section-customize'>
                                 <div className='bg-image section-specialty'></div>
                                 <div>Co Xuong Khop 1</div>
                             </div>
-                            <div className='specialty-customize'>
+                            <div className='section-customize'>
                                 <div className='bg-image section-specialty'></div>
                                 <div>Co Xuong Khop 1</div>
                             </div>
-                            <div className='specialty-customize'>
+                            <div className='section-customize'>
                                 <div className='bg-image section-specialty'></div>
                                 <div>Co Xuong Khop 1</div>
                             </div>
-                            <div className='specialty-customize'>
+                            <div className='section-customize'>
                                 <div className='bg-image section-specialty'></div>
                                 <div>Co Xuong Khop 1</div>
                             </div>
-                            <div className='specialty-customize'>
+                            <div className='section-customize'>
                                 <div className='bg-image section-specialty'></div>
                                 <div>Co Xuong Khop 1</div>
                             </div>

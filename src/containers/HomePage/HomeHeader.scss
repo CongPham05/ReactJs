@@ -2,6 +2,12 @@
     height: 78px;
     width: 100%;
 
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    box-shadow: 12px -5px 19px 1px #888888;
+    background-color: white;
+
     .home-header-content{
         display: flex;
         width: 100%;

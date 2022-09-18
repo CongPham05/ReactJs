@@ -6,6 +6,7 @@ import { LANGUAGES } from "../../utils";
 
 import { changeLanguageApp } from '../../store/actions';
 
+
 class HomeHeader extends Component {
 
     changeLanguage = (language) => {
@@ -13,7 +14,7 @@ class HomeHeader extends Component {
     }
 
     render() {
-        let language = this.props.lang;
+        let language = this.props.language;
         return (
             <>
                 <div className='home-header-container'>
@@ -105,7 +106,7 @@ class HomeHeader extends Component {
 const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
-        lang: state.app.language,
+        language: state.app.language,
     };
 };
 

@@ -98,7 +98,7 @@ class Login extends Component {
 
     render() {
         const { username, password, loginError } = this.state;
-        const { lang } = this.props;
+        const { language } = this.props;
 
         return (
             <div className="login-wrapper">
@@ -110,7 +110,7 @@ class Login extends Component {
                         <div className="form-group icon-true">
                             <img className="icon" src={userIcon} alt="this" />
                             <input
-                                placeholder={LanguageUtils.getMessageByKey("login.username", lang)}
+                                placeholder={LanguageUtils.getMessageByKey("login.username", language)}
                                 id="username"
                                 name="username"
                                 type="text"
@@ -123,7 +123,7 @@ class Login extends Component {
                         <div id="phone-input-container" className="form-group icon-true">
                             <img className="icon" src={passIcon} alt="this" />
                             <input
-                                placeholder={LanguageUtils.getMessageByKey("login.password", lang)}
+                                placeholder={LanguageUtils.getMessageByKey("login.password", language)}
                                 id="password"
                                 name="password"
                                 type="password"
@@ -145,7 +145,7 @@ class Login extends Component {
                                 id="btnLogin"
                                 type="submit"
                                 className="btn"
-                                value={LanguageUtils.getMessageByKey("login.login", lang)}
+                                value={LanguageUtils.getMessageByKey("login.login", language)}
                                 onClick={this.processLogin}
                             />
                         </div>
@@ -158,7 +158,7 @@ class Login extends Component {
 
 const mapStateToProps = state => {
     return {
-        lang: state.app.language
+        language: state.app.language
     };
 };
 

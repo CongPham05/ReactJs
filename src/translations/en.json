@@ -15,6 +15,9 @@
         "title1": "MEDICAL BACKGROUND",
         "title2": "COMPREHENSIVE HEALTH CARE"
     },
+    "options": {
+        "specialist-examination": "Specialist resistance"
+    },
     "menu": {
         "system": {
             "header": "System",

@@ -1,5 +1,5 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService } from "../../services/userService";
+import { getAllCodeService, createNewUserService } from "../../services/userService";
 import { getAction } from 'connected-react-router';
 
 // export const fetchGenderStart = () => ({
@@ -84,4 +84,28 @@ export const fetchRoleSuccess = (roleData) => ({
 })
 export const fetchRoleFailed = () => ({
     type: actionTypes.FETCH_ROLE_FAILED
+})
+export const createNewUser = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await createNewUserService(data);
+            console.log("check user redux : ", res)
+            if (res && res.errCode === 0) {
+                dispatch(createNewUserSuccess())
+            }
+            else {
+                dispatch(createNewUserFailed())
+
+            }
+        } catch (e) {
+            dispatch(createNewUserFailed())
+            console.log("create New User Failed", e)
+        }
+    }
+}
+export const createNewUserSuccess = () => ({
+    type: actionTypes.SAVE_USER_SUCCESS
+})
+export const createNewUserFailed = () => ({
+    type: actionTypes.SAVE_USER_FAILED
 })

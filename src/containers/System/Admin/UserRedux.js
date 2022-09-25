@@ -8,7 +8,7 @@ import { Label } from 'reactstrap';
 import './UserRedux.scss'
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
-
+import TableManageUser from './TableManageUser';
 
 class UserRedux extends Component {
 
@@ -74,6 +74,21 @@ class UserRedux extends Component {
                 role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : ""
             })
         }
+
+        if (prevProps.allUsersRedux !== this.props.allUsersRedux) {
+            this.setState({
+                email: "",
+                password: "",
+                firstName: "",
+                lastName: "",
+                phoneNumber: "",
+                address: "",
+                gender: "",
+                position: "",
+                role: "",
+                preImgURL: ""
+            })
+        }
     }
 
     handleOnChangImg = (e) => {
@@ -129,23 +144,13 @@ class UserRedux extends Component {
             positionId: this.state.position
         });
 
-        this.setState({
-            email: "",
-            password: "",
-            firstName: "",
-            lastName: "",
-            phoneNumber: "",
-            address: "",
-            gender: "",
-            position: "",
-            role: "",
-            preImgURL: ""
-        })
     }
     render() {
         let genders = this.state.genderArr;
         let positions = this.state.positionArr;
         let roles = this.state.roleArr;
+
+
 
         let language = this.props.language;
         let isLoadingGender = this.props.isLoadingGender;
@@ -293,9 +298,12 @@ class UserRedux extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='col-12'>
+                                <div className='col-12 my-3'>
                                     <button className='btn btn-primary'
                                         onClick={() => { this.handleSaveUser() }}><FormattedMessage id='menu.manage-user.save' /></button>
+                                </div>
+                                <div className='col-12 mb-10'>
+                                    <TableManageUser />
                                 </div>
                             </div>
                         </div>
@@ -322,7 +330,7 @@ const mapStateToProps = state => {
         isLoadingGender: state.admin.isLoadingGender,
         positionRedux: state.admin.positions,
         roleRedux: state.admin.roles,
-
+        allUsersRedux: state.admin.allUsers,
 
     };
 };
@@ -333,6 +341,8 @@ const mapDispatchToProps = dispatch => {
         getPositonStart: () => dispatch(actions.fetchPositionStart()),
         getRoleStart: () => dispatch(actions.fetchRoleStart()),
         createNewUser: (data) => dispatch(actions.createNewUser(data)),
+
+        getAllUsersRedux: () => dispatch(actions.fecthAllUsersStart()),
 
         // processLogout:
         //     () => dispatch(actions.processLogout()),

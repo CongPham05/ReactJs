@@ -148,7 +148,7 @@ class UserManage extends Component {
                         </thead>
                         <tbody>
 
-                            {arrUsers && arrUsers.map((arrUser, index) => {
+                            {arrUsers && arrUsers.length > 0 && arrUsers.map((arrUser, index) => {
                                 return (
                                     <tr key={arrUser.id}>
                                         <td>{arrUser.email}</td>

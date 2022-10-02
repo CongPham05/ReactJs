@@ -1,10 +1,18 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService, createNewUserService, getAllUsers, deleteUserService } from "../../services/userService";
-import { getAction } from 'connected-react-router';
+import {
+    getAllCodeService, createNewUserService,
+    getAllUsers, deleteUserService,
+    editUserService, getTopDoctorHomeService
+} from "../../services/userService";
+
 import { toast } from 'react-toastify';
+
+
+
 // export const fetchGenderStart = () => ({
 //     type: actionTypes.FETCH_GENDER_START
 // })
+
 export const fetchGenderStart = () => {
     return async (dispatch, getAction) => {
         try {
@@ -33,7 +41,6 @@ export const fetchGenderSuccess = (genderData) => ({
 export const fetchGenderFailed = () => ({
     type: actionTypes.FETCH_GENDER_FAILED
 })
-/////////////////////////
 export const fetchPositionStart = () => {
     return async (dispatch, getAction) => {
         try {
@@ -59,7 +66,6 @@ export const fetchPositionSuccess = (positionData) => ({
 export const fetchPositionFailed = () => ({
     type: actionTypes.FETCH_POSITION_FAILED
 })
-/////////////////////////
 export const fetchRoleStart = () => {
     return async (dispatch, getAction) => {
         try {
@@ -85,6 +91,8 @@ export const fetchRoleSuccess = (roleData) => ({
 export const fetchRoleFailed = () => ({
     type: actionTypes.FETCH_ROLE_FAILED
 })
+
+
 export const createNewUser = (data) => {
     return async (dispatch, getState) => {
         try {
@@ -111,6 +119,8 @@ export const createNewUserSuccess = () => ({
 export const createNewUserFailed = () => ({
     type: actionTypes.SAVE_USER_FAILED
 })
+
+
 export const fecthAllUsersStart = (data) => {
     return async (dispatch, getState) => {
         try {
@@ -133,8 +143,10 @@ export const fecthAllUsersSuccess = (dataAllUserRedux) => ({
     data: dataAllUserRedux
 })
 export const fecthAllUsersFailed = () => ({
-    typeo: actionTypes.FETCH_ALL_USERS_FAILED
+    type: actionTypes.FETCH_ALL_USERS_FAILED
 })
+
+
 export const deleteUser = (userId) => {
     return async (dispatch, getState) => {
         try {
@@ -157,5 +169,57 @@ export const deleteUserSuccess = () => ({
     type: actionTypes.DELETE_USER_SUCCESS,
 })
 export const deleteUserFailed = () => ({
-    typeo: actionTypes.DELETE_USER_FAILED
+    type: actionTypes.DELETE_USER_FAILED
+})
+export const editUser = (userId) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await editUserService(userId);
+            if (res && res.errCode === 0) {
+                dispatch(editUserSuccess());
+                dispatch(fecthAllUsersStart());
+                toast.success("Ban da Edit Thanh cong !")
+            }
+            else {
+                dispatch(editUserFailed());
+                toast.error("Edit User Failed")
+            }
+        } catch (e) {
+            dispatch(editUserFailed());
+            toast.error("Edit User Failed")
+            console.log("Edit User Failed", e)
+        }
+    }
+}
+export const editUserSuccess = () => ({
+    type: actionTypes.EDIT_USER_SUCCESS,
+})
+export const editUserFailed = () => ({
+    type: actionTypes.EDIT_USER_FAILED
+})
+
+export const fecthTopDoctor = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getTopDoctorHomeService("");
+
+            if (res && res.errCode === 0) {
+                dispatch(fecthTopDoctorSuccess(res.data))
+            }
+            else {
+                dispatch(fecthTopDoctorFailed());
+            }
+        } catch (e) {
+            console.log("FETCH_TOP_DOCTORS_FAILED", e)
+            dispatch(fecthTopDoctorFailed());
+        }
+    }
+}
+
+export const fecthTopDoctorSuccess = (data) => ({
+    type: actionTypes.FETCH_TOP_DOCTORS_SUCCESS,
+    dataDoctor: data,
+})
+export const fecthTopDoctorFailed = () => ({
+    type: actionTypes.FETCH_TOP_DOCTORS_FAILED
 })

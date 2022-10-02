@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import './TableManageUser.scss'
-import * as actions from '../../../store/actions'
+import './TableManageUser.scss';
+import * as actions from '../../../store/actions';
+import { Alert } from 'reactstrap';
 
 
 class TableManageUser extends Component {
@@ -27,10 +28,11 @@ class TableManageUser extends Component {
     handleDeleteUser = (user) => {
         this.props.deleteUser(user.id);
     }
+    handleEditUser = (user) => {
+        this.props.handlEditUserFromParent(user);
+    }
     render() {
         let arrUsers = this.state.usersRedux;
-        console.log("Check all users redux", arrUsers)
-
         return (
             <div className="users-container">
                 <div className='title text-cencer'>Manage user with cong pham</div>
@@ -46,18 +48,23 @@ class TableManageUser extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {arrUsers && arrUsers.length > 0 && arrUsers.map((arrUser, index) => {
+                            {arrUsers && arrUsers.length > 0 && arrUsers.map((item, index) => {
                                 return (
-                                    <tr key={arrUser.id}>
-                                        <td>{arrUser.email}</td>
-                                        <td>{arrUser.firstName}</td>
-                                        <td>{arrUser.lastName}</td>
-                                        <td>{arrUser.address}</td>
+                                    <tr key={item.id}>
+                                        <td>{item.email}</td>
+                                        <td>{item.firstName}</td>
+                                        <td>{item.lastName}</td>
+                                        <td>{item.address}</td>
                                         <td >
-                                            <button className='btn-edit' ><i className="fas fa-pencil-alt"></i></button>
+                                            <button
+                                                className='btn-edit'
+                                                onClick={() => { this.handleEditUser(item) }}
+                                            >
+                                                <i className="fas fa-pencil-alt"></i>
+                                            </button>
                                             <button
                                                 className='btn-delete'
-                                                onClick={() => { this.handleDeleteUser(arrUser) }}
+                                                onClick={() => { this.handleDeleteUser(item) }}
                                             >
                                                 <i className="fas fa-trash"></i></button>
                                         </td>
@@ -87,5 +94,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TableManageUser
-);
+export default connect(mapStateToProps, mapDispatchToProps)(TableManageUser);

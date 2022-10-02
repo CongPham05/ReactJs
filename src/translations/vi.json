@@ -56,7 +56,8 @@
             "position": "Chức danh",
             "roleid": "Vai trò",
             "image": "Ảnh đại diện",
-            "save": "Lưu"
+            "save": "Lưu",
+            "edit": "Lưu lại User"
         }
     }
 }

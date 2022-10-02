@@ -52,7 +52,6 @@ class App extends Component {
                         </div>
 
                         <ToastContainer
-
                             position="bottom-right"
                             autoClose={5000}
                             hideProgressBar={false}

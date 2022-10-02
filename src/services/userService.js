@@ -3,7 +3,6 @@ import axios from "../axios";
 const handleLoginApi = (email, password) => {
     return axios.post('/api/login', { email, password });
 }
-
 const getAllUsers = (id) => {
     return axios.get(`/api/get-all-users?id=${id}`)
 }
@@ -24,12 +23,16 @@ const getAllCodeService = (inputType) => {
     return axios.get(`/api/allcode?type=${inputType}`)
 
 }
+const getTopDoctorHomeService = (limit) => {
+    return axios.get(`/api/top-doctor-home?limit=${limit}`)
+}
 export {
     handleLoginApi,
     getAllUsers,
     createNewUserService,
     deleteUserService,
     editUserService,
-    getAllCodeService
+    getAllCodeService,
+    getTopDoctorHomeService
 
 }

@@ -59,5 +59,9 @@
             "save": "Save",
             "edit": "Save change User !"
         }
+    },
+    "homepage": {
+        "outstanding-doctor": "OutStanding Doctor",
+        "more-infor": "See more"
     }
 }

@@ -37,8 +37,8 @@ class OutStandingDoctor extends Component {
             <div className='section-share section-outstanding-doctor'>
                 <div className='section-container'>
                     <div className='section-header'>
-                        <span className='title-section'> Bac Si Noi Bat Tuan Qua</span>
-                        <button className='btn-section'>Xem Them</button>
+                        <span className='title-section'> <FormattedMessage id="homepage.outstanding-doctor" /></span>
+                        <button className='btn-section'><FormattedMessage id="homepage.more-infor" /></button>
                     </div>
                     <div className='section-body'>
                         <Slider {...this.props.settings}>
@@ -68,16 +68,12 @@ class OutStandingDoctor extends Component {
                                     )
                                 })
                             }
-
                         </Slider>
                     </div>
-
                 </div>
             </div>
-
         );
     }
-
 }
 
 const mapStateToProps = state => {

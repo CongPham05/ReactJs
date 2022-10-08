@@ -59,11 +59,16 @@ class ManageDoctors extends Component {
 
         if (prevProps.allDoctors !== this.props.allDoctors) {
             let dataSelect = this.buildDataInputSelect(this.props.allDoctors)
-            this.setState({ listDoctors: dataSelect })
+            this.setState({
+                listDoctors: dataSelect
+            }
+            )
         }
         if (prevProps.language !== this.props.language) {
             let dataSelect = this.buildDataInputSelect(this.props.allDoctors)
-            this.setState({ listDoctors: dataSelect })
+            this.setState({
+                listDoctors: dataSelect
+            })
         }
     }
 
@@ -75,7 +80,13 @@ class ManageDoctors extends Component {
 
     }
     handleSaveContentMarkdown = () => {
-        console.log("check:", this.state)
+        this.props.saveDetailDoctors({
+            contentHTML: this.state.contentHTML,
+            contentMarkdown: this.state.contentMarkdown,
+            description: this.state.description,
+            doctorId: this.state.selectedOption.value,
+        })
+
     }
     handleChange = (selectedOption) => {
         this.setState({ selectedOption })
@@ -88,7 +99,7 @@ class ManageDoctors extends Component {
     }
 
     render() {
-        console.log(this.state.selectedOption.value)
+        console.log(this.state)
         return (
             <div className='manage-doctor-container'>
                 <div className='manage-doctor-title'> Tao them thong tin doctor</div>
@@ -141,7 +152,8 @@ const mapDispatchToProps = dispatch => {
     return {
         getAllUsersRedux: () => dispatch(actions.fecthAllUsersStart()),
         deleteUser: (id) => dispatch(actions.deleteUser(id)),
-        getAllDoctors: () => dispatch(actions.fecthAllDoctor())
+        getAllDoctors: () => dispatch(actions.fecthAllDoctor()),
+        saveDetailDoctors: (data) => dispatch(actions.saveDetailDoctor(data))
 
     };
 };

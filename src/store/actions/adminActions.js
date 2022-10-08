@@ -3,17 +3,12 @@ import {
     getAllCodeService, createNewUserService,
     getAllUsers, deleteUserService,
     editUserService, getTopDoctorHomeService,
-    getAllDoctors
+    getAllDoctors, postInforDoctor
 
 } from "../../services/userService";
 
 import { toast } from 'react-toastify';
 
-
-
-// export const fetchGenderStart = () => ({
-//     type: actionTypes.FETCH_GENDER_START
-// })
 
 export const fetchGenderStart = () => {
     return async (dispatch, getAction) => {
@@ -245,6 +240,33 @@ export const fecthAllDoctor = () => {
             console.log("FETCH_ALL_DOCTORS_FAILED", e)
             dispatch({
                 type: actionTypes.FETCH_ALL_DOCTORS_FAILED
+            });
+        }
+    }
+}
+
+export const saveDetailDoctor = (data) => {
+    return async (dispatch, getState) => {
+        try {
+
+            let res = await postInforDoctor(data);
+            if (res && res.errCode === 0) {
+                toast.success("Thanh cong roi nhe ...")
+                dispatch({
+                    type: actionTypes.POST_INFOR_DOCTORS_SUCCESS,
+                })
+            }
+            else {
+                toast.error("That bai roi nhe ...")
+                dispatch({
+                    type: actionTypes.POST_INFOR_DOCTORS_FAILED
+                });
+            }
+        } catch (e) {
+            console.log("FETCH_ALL_DOCTORS_FAILED", e)
+            toast.error("That bai roi nhe ...")
+            dispatch({
+                type: actionTypes.POST_INFOR_DOCTORS_FAILED
             });
         }
     }

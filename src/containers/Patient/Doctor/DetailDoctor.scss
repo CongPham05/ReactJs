@@ -1,34 +1,68 @@
 .doctor-detail-container {
-    height: 500px;
-    border: 1px solid red;
-    margin: 0 100px;
+    //height: 500px;
+    // border: 1px solid red;
+
+    margin: 0 280px 0 300px;
+
     .intro-doctor {
-        display: flex;
-        margin: 20px;
+        display      : flex;
+        padding      : 20px;
+        margin-top   : 30px;
+        margin-bottom: 30px;
+        border       : 1px solid rgba(113, 111, 111, 0.153);
+
+        background-color: rgba(239, 236, 233, 0.178);
 
         .content-left {
-            width: 150px;
-            height: 150px;
+            width        : 150px;
+            height       : 150px;
             border-radius: 50%;
-            background: center center/cover no-repeat;
-            margin-right: 20px;
+            background   : center center/cover no-repeat;
+            margin-right : 20px;
         }
+
         .content-right {
-            width: 80%;
-            border: 1px solid blue;
-            display: flex;
-            flex-direction: column;
-            padding-left: 10px;
+
+            width           : 700px;
+            //border        : 1px solid blue;
+            display         : flex;
+            flex-direction  : column;
+            padding-left    : 10px;
 
             .up {
-                font-size: 20px;
+                font-size  : 20px;
                 font-weight: 600;
             }
+
             .down {
-                font-size: 15px;
+                font-size  : 15px;
                 font-weight: 300;
                 padding-top: 10px;
             }
         }
+
+
+    }
+
+    .detail-infor-container {
+
+        border            : 1px solid rgba(113, 111, 111, 0.153);
+        background-color  : rgba(239, 236, 233, 0.173);
+        //border          : 1px solid blue;
+
+        padding: 20px;
+
+        img {
+            margin      : 20px;
+            display     : block;
+            margin-left : auto;
+            margin-right: auto;
+            width       : 80%;
+        }
+
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(218, 97, 101, 0.5);
+        }
+
     }
 }

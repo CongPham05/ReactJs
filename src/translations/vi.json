@@ -19,18 +19,6 @@
         "specialist-examination": "Khám Chuyên Khoa"
     },
     "menu": {
-        "system": {
-            "header": "Hệ thống",
-            "system-administrator": {
-                "header": "Quản trị hệ thống",
-                "user-manage": "Quản lý người sử dụng",
-                "user-redux": "Quản lý người sử dụng Redux",
-                "register-package-group-or-account": "Đăng ký gói dịch vụ cho nhóm/tài khoản"
-            },
-            "system-parameter": {
-                "header": "Tham số hệ thống"
-            }
-        },
         "admin": {
             "manage-user": "Quản lý người dùng",
             "manage-doctor": "Quản lý bác sĩ",
@@ -43,6 +31,9 @@
             "manage-speciality": "Quản lý Chuyên Khoa",
             "handbook": "Cẩm Nang",
             "manage-handbook": "Quản lý Cẩm Nang"
+        },
+        "doctor": {
+            "manage-schedule": "Quản lý kế hoạch khám bệnh"
         },
         "manage-user": {
             "add": "Thêm người dùng mới",
@@ -63,5 +54,11 @@
     "homepage": {
         "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
         "more-infor": "Xem Thêm"
+    },
+    "manage-schedule": {
+        "title": "Quản lý kế hoạch khám bệnh của bác sĩ",
+        "choose-doctor": "Chọn Bác Sĩ",
+        "choose-date": "Chọn ngày khám",
+        "save": "Lưu thông tin"
     }
 }

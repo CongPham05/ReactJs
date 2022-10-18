@@ -19,18 +19,6 @@
         "specialist-examination": "Specialist resistance"
     },
     "menu": {
-        "system": {
-            "header": "System",
-            "system-administrator": {
-                "header": "System Administrator",
-                "user-manage": "User manage",
-                "user-redux": "User manage by Redux",
-                "register-package-group-or-account": "Register service package for group/account"
-            },
-            "system-parameter": {
-                "header": "System-parameter"
-            }
-        },
         "admin": {
             "manage-user": "User System",
             "manage-doctor": "Manage Doctor",
@@ -43,6 +31,9 @@
             "manage-speciality": "Manage Specialties",
             "handbook": "Hand Book",
             "manage-handbook": "Manage Hand Book"
+        },
+        "doctor": {
+            "manage-schedule": "Manage Doctor Schedule"
         },
         "manage-user": {
             "add": "Add new user",
@@ -63,5 +54,11 @@
     "homepage": {
         "outstanding-doctor": "OutStanding Doctor",
         "more-infor": "See more"
+    },
+    "manage-schedule": {
+        "title": "Manage doctor's examination plan",
+        "choose-doctor": "Choose doctor",
+        "choose-date": "Choose date",
+        "save": "Save infor"
     }
 }

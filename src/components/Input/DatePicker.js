@@ -139,12 +139,14 @@ class DatePicker extends Component {
 
     render() {
         const { value, onChange, minDate, onClose, ...otherProps } = this.props;
+
         const options = {
             dateFormat: this.DISPLAY_FORMAT,
             allowInput: true,
             disableMobile: true,
             onClose: onClose,
-            onOpen: this.onOpen
+            onOpen: this.onOpen,
+
         };
         if (minDate) {
             options.minDate = minDate;

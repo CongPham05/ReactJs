@@ -9,7 +9,7 @@ import DatePicker from '../../../components/Input/DatePicker';
 import { toast } from "react-toastify";
 import _ from 'lodash';
 import moment from 'moment';
-
+import { saveBulkScheduleDoctor } from '../../../services/userService';
 
 class ManageSchedule extends React.Component {
     constructor(props) {
@@ -86,7 +86,7 @@ class ManageSchedule extends React.Component {
         }
 
     }
-    handleSaveSchedule = () => {
+    handleSaveSchedule = async () => {
         let { rangeTime, selectedDoctor, currentDate } = this.state;
         let result = [];
 
@@ -98,7 +98,8 @@ class ManageSchedule extends React.Component {
             toast.error("Invalid selected doctor! . . .");
             return;
         }
-        let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
+        //let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
+        let formatedDate = new Date(currentDate).getTime();
 
         if (rangeTime && rangeTime.length > 0) {
 
@@ -111,6 +112,7 @@ class ManageSchedule extends React.Component {
                     object.doctorId = selectedDoctor.value;
                     object.date = formatedDate;
                     object.time = schedule.keyMap;
+                    object.timeType = schedule.keyMap;
                     result.push(object);
                 })
             }
@@ -120,6 +122,17 @@ class ManageSchedule extends React.Component {
 
             }
         }
+        let res = await saveBulkScheduleDoctor({
+            arrSchedule: result,
+            doctorId: selectedDoctor.value,
+            formatedDate: formatedDate
+        })
+        if (res && res.infor && res.infor.errCode === 0) {
+            toast.success("Lưu Thành công lịch khám bệnh ...!");
+
+
+        }
+        console.log("Check cai lay ve tu server...:", res);
         console.log("Check cai gui di...: ", result)
     }
     render() {

@@ -129,16 +129,17 @@ class ManageSchedule extends React.Component {
         })
         if (res && res.infor && res.infor.errCode === 0) {
             toast.success("Lưu Thành công lịch khám bệnh ...!");
-
-
         }
-        console.log("Check cai lay ve tu server...:", res);
-        console.log("Check cai gui di...: ", result)
+        else {
+            toast.error("loi luu lich kham benh")
+            console.log("Check cai lay ve tu server res:", res);
+        }
+
     }
     render() {
-        let { rangeTime, currentDate } = this.state;
-
+        let { rangeTime } = this.state;
         let { language } = this.props;
+        let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
         return (
             <div className='manage-schedule-container'>
                 <div className='m-s-title'>
@@ -159,14 +160,10 @@ class ManageSchedule extends React.Component {
                         <div className='col-6 form-group'>
                             <label> <FormattedMessage id='manage-schedule.choose-date' /></label>
                             <DatePicker
-                                //value={currentDate}
-
-                                defaultDate={currentDate}
-                                // key={currentDate.toString()}
-                                //options={{ defaultDate: [new Date()] }}
+                                value={this.state.currentDate}
                                 onChange={this.handleOnchangeDataPicker}
                                 className="form-control"
-                                minDate={new Date()}
+                                minDate={yesterday}
                             />
                         </div>
                         <div className='col-12 pick-hour-container'>

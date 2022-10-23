@@ -11,19 +11,22 @@ class DetailDoctor extends Component {
     constructor(props) {
         super(props);
         this.state = ({
-            detailDotor: {}
+            detailDoctor: {},
+            currentDoctorId: -1,
         })
     }
     async componentDidMount() {
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
-            let doctorId = this.props.match.params.id;
-            let res = await getDetailInforDoctor(doctorId);
+            let id = this.props.match.params.id;
+            this.setState({
+                currentDoctorId: id
+            })
+            let res = await getDetailInforDoctor(id);
             if (res && res.errCode === 0) {
                 this.setState({
-                    detailDotor: res.data
+                    detailDoctor: res.data,
                 })
             }
-            console.log('check', res)
         }
     }
 
@@ -32,13 +35,14 @@ class DetailDoctor extends Component {
     }
     render() {
 
-        let { detailDotor } = this.state;
+        let { detailDoctor } = this.state;
+        console.log(detailDoctor)
         let { language } = this.props
         let nameVi = "", nameEn = "";
-        if (detailDotor && detailDotor.positionData) {
+        if (detailDoctor && detailDoctor.positionData) {
 
-            nameVi = `${detailDotor.positionData.valueVi},${detailDotor.firstName} ${detailDotor.lastName}`;
-            nameEn = `${detailDotor.positionData.valueEn},${detailDotor.firstName} ${detailDotor.lastName}`;
+            nameVi = `${detailDoctor.positionData.valueVi},${detailDoctor.firstName} ${detailDoctor.lastName}`;
+            nameEn = `${detailDoctor.positionData.valueEn},${detailDoctor.firstName} ${detailDoctor.lastName}`;
         }
         return (
             <>
@@ -47,7 +51,7 @@ class DetailDoctor extends Component {
                     <div className='intro-doctor'>
                         <div
                             className='content-left'
-                            style={{ backgroundImage: `url(${detailDotor.image ? detailDotor.image : ""})` }}
+                            style={{ backgroundImage: `url(${detailDoctor.image ? detailDoctor.image : ""})` }}
                         >
 
                         </div>
@@ -56,10 +60,10 @@ class DetailDoctor extends Component {
                                 {language === LANGUAGES.VI ? nameVi : nameEn}
                             </div>
                             <div className='down'>
-                                {detailDotor.Markdown
-                                    && detailDotor.Markdown.description
+                                {detailDoctor.Markdown
+                                    && detailDoctor.Markdown.description
                                     && <span>
-                                        {detailDotor.Markdown.description}
+                                        {detailDoctor.Markdown.description}
                                     </span>
                                 }
                             </div>
@@ -68,7 +72,7 @@ class DetailDoctor extends Component {
                     <div className='schedule-doctor'>
                         <div className='content-left'>
                             <DoctorSchedule
-                                doctorIdFromParent={detailDotor && detailDotor.id ? detailDotor.id : -1}
+                                doctorIdFromParent={this.state.currentDoctorId}
                             />
                         </div>
                         <div className='content-right'>
@@ -76,10 +80,10 @@ class DetailDoctor extends Component {
                         </div>
                     </div>
                     <div className='detail-infor-container'>
-                        {detailDotor && detailDotor.Markdown
-                            && detailDotor.Markdown.contentHTML
+                        {detailDoctor && detailDoctor.Markdown
+                            && detailDoctor.Markdown.contentHTML
                             &&
-                            <div dangerouslySetInnerHTML={{ __html: detailDotor.Markdown.contentHTML }}>
+                            <div dangerouslySetInnerHTML={{ __html: detailDoctor.Markdown.contentHTML }}>
                             </div>
 
                         }

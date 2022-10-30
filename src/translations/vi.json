@@ -67,6 +67,13 @@
             "no-schedule": "Bác sĩ không có lịch khám trong ngày này. Vui lòng đăng ký sang ngày khác .",
             "choose": "Chọn",
             "book-free": " và đặt (miễn phí)"
+        },
+        "extra-infor-doctor": {
+            "text-address": "Địa chỉ khám",
+            "price": "Giá khám : ",
+            "detail": "Xem chi tiết",
+            "payment": "Người bệnh có thể trả giá bằng hình thức: ",
+            "hide-price": "Ẩn bảng giá"
         }
     },
     "admin": {

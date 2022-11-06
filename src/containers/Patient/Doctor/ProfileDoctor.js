@@ -44,7 +44,7 @@ class ProfileDoctor extends Component {
     }
     renderTimeBooking = (dataTime) => {
         let { language } = this.props;
-        let date;
+        let date = '';
         if (dataTime && !_.isEmpty(dataTime)) {
             let time = language === LANGUAGES.VI ?
                 dataTime.timeTypeData.valueVi : dataTime.timeTypeData.valueEn;
@@ -68,7 +68,7 @@ class ProfileDoctor extends Component {
             return (
                 <>
                     <div><i>{time}</i> - <i>{date}</i></div>
-                    <div>Miễn phí đặt lịch </div>
+                    <div><FormattedMessage id="patient.booking-modal.priceBooking" /> </div>
                 </>
             )
         }
@@ -117,7 +117,7 @@ class ProfileDoctor extends Component {
                     </div>
                 </div>
                 <div className=' price'>
-                    Gia Kham:
+                    <FormattedMessage id="patient.booking-modal.price" />
                     {dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.VI &&
                         <NumberFormat
                             className='currency'

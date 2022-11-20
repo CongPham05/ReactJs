@@ -7,6 +7,7 @@ import localization from 'moment/locale/vi';
 import moment from 'moment';
 import { FormattedMessage } from 'react-intl';
 import BookingModal from './Modal/BookingModal';
+import { couldStartTrivia } from 'typescript';
 
 class DoctorSchedule extends Component {
     constructor(props) {
@@ -21,6 +22,14 @@ class DoctorSchedule extends Component {
     async componentDidMount() {
         let { language } = this.props;
         let allDays = this.getArrDays(language);
+
+        if (this.props.doctorIdFromParent) {
+            let res = await getScheduleDoctorByDate(this.props.doctorIdFromParent, allDays[0].value);
+            console.log("cong check:", res);
+            this.setState({
+                allAvailableTime: res.data ? res.data : []
+            })
+        }
         this.setState({
             allDays: allDays
         });
@@ -62,7 +71,6 @@ class DoctorSchedule extends Component {
     async componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.language !== prevProps.language) {
             let allDays = this.getArrDays(this.props.language);
-
             this.setState({
                 allDays: allDays
             })
@@ -73,7 +81,7 @@ class DoctorSchedule extends Component {
             let res = await getScheduleDoctorByDate(this.props.doctorIdFromParent, allDays[0].value);
             console.log(res);
             this.setState({
-                allAvailableTime: res.infor.data ? res.infor.data : []
+                allAvailableTime: res.data ? res.data : []
             })
         }
     }

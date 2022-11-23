@@ -11,8 +11,8 @@ class HandBook extends Component {
             <div className='section-share section-hand-book'>
                 <div className='section-container'>
                     <div className='section-header'>
-                        <span className='title-section'> Co So Y Te Noi Bat</span>
-                        <button className='btn-section'>Xem Them</button>
+                        <span className='title-section'> Cẩm nang đời sống</span>
+                        <button className='btn-section'>Xem Thêm</button>
                     </div>
                     <div className='section-body'>
                         <Slider {...this.props.settings}>

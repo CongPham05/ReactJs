@@ -18,31 +18,31 @@ class HandBook extends Component {
                         <Slider {...this.props.settings}>
                             <div className='section-customize'>
                                 <div className='bg-image section-hand-book'></div>
-                                <div>Co Xuong Khop 1</div>
+                                <div>Cẩm nang 1</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='bg-image section-hand-book'></div>
-                                <div>Co Xuong Khop 1</div>
+                                <div>Cẩm nang 2</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='bg-image section-hand-book'></div>
-                                <div>Co Xuong Khop 1</div>
+                                <div>Cẩm nang 3</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='bg-image section-hand-book'></div>
-                                <div>Co Xuong Khop 1</div>
+                                <div>Cẩm nang 4</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='bg-image section-hand-book'></div>
-                                <div>Co Xuong Khop 1</div>
+                                <div>Cẩm nang 5</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='bg-image section-hand-book'></div>
-                                <div>Co Xuong Khop 1</div>
+                                <div>Cẩm nang 6</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='bg-image section-hand-book'></div>
-                                <div>Co Xuong Khop 1</div>
+                                <div>Cẩm nang 7</div>
                             </div>
                         </Slider>
                     </div>

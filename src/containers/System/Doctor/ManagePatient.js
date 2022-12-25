@@ -83,7 +83,7 @@ class ManagePatient extends Component {
         this.setState({
             isShowLoading: true
         })
-        let res = await postSendRemedy({
+        let data = {
             email: dataChild.email,
             imgBase64: dataChild.imgBase64,
             doctorId: dataModal.doctorId,
@@ -91,10 +91,22 @@ class ManagePatient extends Component {
             timeType: dataModal.timeType,
             language: this.props.language,
             patientName: dataModal.patientName
-        })
+        }
+        // let res = await postSendRemedy({
+        //     email: dataChild.email,
+        //     imgBase64: dataChild.imgBase64,
+        //     doctorId: dataModal.doctorId,
+        //     patientId: dataModal.patientId,
+        //     timeType: dataModal.timeType,
+        //     language: this.props.language,
+        //     patientName: dataModal.patientName
+        // })
+        console.log(data);
+
+        let res = await postSendRemedy(data)
 
         if (res && res.errCode === 0) {
-            this.setState9({
+            this.setState({
                 isShowLoading: false
             })
             toast.success("Send Remedy succeeds :");
@@ -183,6 +195,7 @@ class ManagePatient extends Component {
                         </div>
                     </div>
                     <RemedyModal
+
                         isOpenModal={isOpenRemedyModal}
                         dataModal={dataModal}
                         closeRemedyModal={this.closeRemedyModal}

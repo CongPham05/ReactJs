@@ -38,6 +38,10 @@
                 font-size  : 15px;
                 font-weight: 300;
                 padding-top: 10px;
+
+                .like-share-plugin {
+                    margin: 10px 0 20px 0;
+                }
             }
         }
 
@@ -80,5 +84,9 @@
             box-shadow: 0 0 2px 1px rgba(218, 97, 101, 0.5);
         }
 
+    }
+
+    .comment-doctor {
+        padding: 10px 100px;
     }
 }
